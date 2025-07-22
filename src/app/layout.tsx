@@ -1,10 +1,13 @@
 import { ReactNode } from 'react';
 import '../styles/globals.scss';
+import { AuthProvider } from '@/context/AuthContext';
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Input from '@/components/atoms/Input/Input';
 import Button from '@/components/atoms/Button/Button';
+import { useAuth } from '@/context/AuthContext';
 
 const AuthForm = () => {
+    const { setUser } = useAuth();
     const [phone, setPhone] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -32,7 +34,8 @@ const AuthForm = () => {
             setLoading(true);
             const res = await fetch('https://randomuser.me/api/?results=1&nat=us');
             const data = await res.json();
-            localStorage.setItem('user', JSON.stringify(data.results[0]));
+            setUser(data.results[0]);
+            // localStorage.setItem('user', JSON.stringify(data.results[0]));
             router.push('/dashboard');
         } finally {
             setLoading(false);
