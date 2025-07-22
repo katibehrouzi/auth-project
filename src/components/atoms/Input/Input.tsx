@@ -1,13 +1,8 @@
-import { FC, InputHTMLAttributes } from "react"
+import { FC } from "react"
 import styles from './Input.module.scss';
+import { InputPropsI } from "@/types/components/input.types";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    label?: string;
-    error?: string;
-    required?: boolean
-}
-
-const Input: FC<InputProps> = ({
+const Input: FC<InputPropsI> = ({
     label,
     error,
     required,
