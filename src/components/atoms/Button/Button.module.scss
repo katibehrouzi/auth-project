@@ -1,0 +1,90 @@
+.button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.small {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    height: 1.75rem;
+    .spinner {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &.medium {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    height: 2.375rem;
+    .spinner {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &.large {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+    height: 2.625rem;
+    .spinner {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.primary {
+  background-color: #0070f3;
+  color: white;
+
+  &:hover:not(.disabled) {
+    background-color: #0057c2;
+  }
+}
+
+.secondary {
+  background-color: #a9a9a9;
+  color: white;
+
+  &:hover:not(.disabled) {
+    background-color: #8a8585;
+  }
+}
+
+.danger {
+  background-color: #e53935;
+  color: white;
+
+  &:hover:not(.disabled) {
+    background-color: #c62828;
+  }
+}
+
+.spinner {
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
